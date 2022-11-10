@@ -8,31 +8,61 @@ const Banner = () => {
     const bannerData = [
         {
             image: img1,
+            text1: (
+                <>
+                    Learn
+                    <br />
+                    Harvesting
+                    <br />
+                    In A Proper Way
+                    <br />
+                    At Proper Time
+                </>
+            ),
             id: 1,
-            prev: 4,
+            prev: 3,
             next: 2,
         },
         {
             image: img2,
+            text1: (
+                <>
+                    Ecosystem
+                    <br />
+                    Approach to
+                    <br />
+                    Fisheries:
+                    <br />
+                    An Introduction
+                </>
+            ),
             id: 2,
             prev: 1,
             next: 3,
         },
         {
             image: img3,
+            text1: (
+                <>
+                    Cattles &
+                    <br />
+                    Birds
+                    <br />
+                    Husbandry
+                    <br/>
+                    Training
+                </>
+            ),
             id: 3,
             prev: 2,
-            next: 4,
+            next: 1,
         },
     ];
     return (
         <div className="carousel w-full py-12">
-            {
-                bannerData.map(slide => <BannerItem
-                    key={slide.id}
-                    slide={slide}
-                ></BannerItem>)
-            }            
+            {bannerData.map((slide) => (
+                <BannerItem key={slide.id} slide={slide}></BannerItem>
+            ))}
         </div>
     );
 };
