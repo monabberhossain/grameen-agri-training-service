@@ -41,7 +41,7 @@ const Header = () => {
                 <div className="dropdown">
                     <label
                         tabIndex={0}
-                        className="btn  btn-sm lg:btn-md btn-success lg:hidden"
+                        className="btn btn-sm lg:btn-md lg:hidden"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const Header = () => {
                 ) : (
                     <div className="flex">
                         <Link to="/login">
-                            <button className="btn btn-sm lg:btn-md btn-outline btn-success mr-2 font-semibold ">
+                            <button className="btn btn-sm lg:btn-md btn-outline mr-2 btn-success font-semibold ">
                                 Login
                             </button>
                         </Link>

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
-const Checkout = () => {
-    const { _id, title, price } = useLoaderData();
+const ServiceDetail = () => {
+    const { _id, img, price, title, rating, description } = useLoaderData();
     const { user } = useContext(AuthContext);
 
     const handlePlaceOrder = (event) => {
@@ -50,6 +50,28 @@ const Checkout = () => {
     };
     return (
         <div>
+            <div className="card card-compact justify-center w-100 bg-base-100 shadow-xl">
+                <figure>
+                    <img src={img} alt="Shoes" />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{title}</h2>
+                    <p className="">{description}</p>
+                    <p className="text-2xl text-orange-400 font-semibold">
+                        Price: ${price}
+                    </p>
+                    <p className="text-2xl text-orange-400 font-semibold">
+                        Rating: {rating}
+                    </p>
+                    <div className="card-actions justify-center">
+                        <Link className="w-full" to={`/service/${_id}`}>
+                            <p className="btn text-white btn-success hover:bg-orange-400 w-full">
+                                View Details
+                            </p>
+                        </Link>
+                    </div>
+                </div>
+            </div>
             <form onSubmit={handlePlaceOrder}>
                 <h2 className="text-4xl">You are about to order: {title}</h2>
                 <h4 className="text-3xl">Price: {price}</h4>
@@ -95,4 +117,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default ServiceDetail;

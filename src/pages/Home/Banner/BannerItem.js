@@ -12,20 +12,25 @@ const BannerItem = ({ slide }) => {
             <div className="absolute flex transform -translate-y-1/2 left-20 top-1/3">
                 <h1 className="text-7xl font-bold text-white">{text1}</h1>
             </div>
-            <div style={{top: "60%"}} className="absolute flex transform -translate-y-1/2 left-20">
-                <Link className="btn btn-outline btn-warning mt-20">Appointment</Link>
+            <div
+                style={{ top: "60%" }}
+                className="absolute flex transform -translate-y-1/2 left-20"
+            >
+                <Link className="btn btn-outline text-orange-400 hover:bg-orange-400 mt-20">
+                    Enroll To Courses
+                </Link>
             </div>
 
             <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 bottom-1">
                 <a
                     href={`#slide${prev}`}
-                    className="btn btn-outline btn-warning btn-circle mr-5"
+                    className="btn btn-outline text-orange-400 hover:bg-orange-400 btn-circle mr-5"
                 >
                     ❮
                 </a>
                 <a
                     href={`#slide${next}`}
-                    className="btn btn-outline btn-warning btn-circle"
+                    className="btn btn-outline text-orange-400 hover:bg-orange-400 btn-circle"
                 >
                     ❯
                 </a>

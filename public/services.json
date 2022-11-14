@@ -1,0 +1,52 @@
+[
+    {
+        "service_id": "01",
+        "title": "Livestock Farming Training",
+        "img": "https://i.ibb.co/RC3w8v4/service1.jpg",
+        "price": "25.00",
+        "rating": "4.5",
+        "description": "This course provides a solid foundation for people who wish to work with livestock and other animals which are bred and looked after for produce. Learn about best practices for animal welfare and productivity systems through gaining an in-depth knowledge of animals from anatomy through to behaviour. Discover how to maintain farmland through proper management of animals. Develop the skills to be successful in the animal husbandry industry. You can direct your studies to your current area of expertise, or choose a new direction for yourself.  You can also make your studies as focused or as broad as you need it to be."
+    },
+    {
+        "service_id": "02",
+        "title": "Fisheries Training",
+        "img": "https://i.ibb.co/DpFjhqM/service2.jpg",
+        "price": "20.00",
+        "rating": "4.7",
+        "description": "This course is the first of a series that aims to provide guidance on the Ecosystem Approach to Fisheries (EAF) and its application to fisheries management. It provides a comprehensive overview of the world fisheries and goes on explaining fisheries management, its objectives, mechanisms and challenges. Subsequently EAF is introduced, explaining its underlying principles and key elements.This e-learning course is intended for a cross section of audiences involved in fisheries or related fields, including policy makers, staff of fisheries institutions,, scientists and technicians,fishers and fish workers, academia and students."
+        
+    },
+    {
+        "service_id": "03",
+        "title": "Modern Agro Machineries Training",
+        "img": "https://i.ibb.co/5YLy2qs/service3.jpg",
+        "price": "40.00",
+        "rating":"4.8",
+        "description": "Our Training Programs are designed to equip farmers and potential farmers advanced knowledge of different departments of Agriculture which includes Mechanized vegetable farming, Mechanized rice farming, farm machinery, Irrigation technology on (Center pivot irrigation, Drip irrigation, Sprinklers and Farm Irrigation designs). Fishery, Poultry and Animal husbandry. We are committed to helping farmers achieve their goal of increasing knowledge on modern day farming, productivity, feeding communities and producing resources. That’s our trainings are organized carefully by our selected experts and accommodation is provided for training in the farms."
+        
+    },
+    {
+        "service_id": "04",
+        "title": "Organic Fertilizer Production Training",
+        "img": "https://i.ibb.co/WKdpkDx/service4.jpg",
+        "price": "50.00",
+        "rating":"4.8",
+        "description": "I am an entrepreneur in organic fertilizer production. Before starting out, it was difficult for me to train farmers on the benefits of organic fertilizer and how to use it. In this way, my customer base remained small made up of organic farmers who already knew the benefits. However, thanks to the training, I have the knowledge and skills on how to convey the same information to conventional farmers as well. In fact, this morning before our meeting, I was on a farm with conventional farmers and answered their inquiries on organic fertilizers. The training gave me the motivation and courage to do what we didn’t do before. That is really empowering! Organic agriculture is an integrated production management system which promotes and enhances agro-ecosystem health, including biodiversity, biological cycles and soil biological activity."
+    },
+    {
+        "service_id": "05",
+        "title": "Fertilizer & Pesticide Application Training",
+        "img": "https://i.ibb.co/SRZWd44/service5.jpg",
+        "price": "40.00",
+        "rating":"4.5",
+        "description": "Improving farmers' knowledge of fertilizer and Pesticide use through agricultural training has been considered a prerequisite to scientific fertilizer and pesticide management. However, empirical evidence of the effect of agricultural training on farmers' fertilizer management knowledge is inconclusive. Based on a randomized controlled experiment involving 687 farmers that mitigates selection bias in the data, this paper identifies the treatment effect of agricultural training on farmers' fertilizer management knowledge in Chinese rice production. Results indicate that the fertilizer management knowledge of field-guidance farmers improved by almost 40%. However, such knowledge acquisition did not occur for curriculum-trained farmers. We also find that there is no evidence of knowledge diffusion from trained farmers to exposed farmers in the same village."
+    },
+    {
+        "service_id": "06",
+        "title": "Crop Marketing Training",
+        "img": "https://i.ibb.co/FKDDSGn/service6.jpg",
+        "price": "30.00",
+        "rating":"4.6",
+        "description": "Learn to sellyour farm produce meat, livestock or crops. Very few non-rural businesses are presented with the continuing changes and variations that confront a rural business.The impact of climate and the environment requires the rural manager has to continually consider, evaluate, and reassess (often on a daily or even hourly basis,) the numerous changes and types of information that affect his or her business. The successful rural manager understands his or her unique markets, and how to capitalise on market forces to maximise business profit.This course develops your ability to analyse and manage marketing problems in an agricultural enterprise. Topics covered include: market research, management of your marketing, promotions, handling produce, packaging, distribution, customer relations and more."
+    }
+]

@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layouts/Main";
-import Checkout from "../../pages/Checkout/Checkout";
+import ServiceDetail from "../../pages/ServiceDetail/ServiceDetail";
 import Home from "../../pages/Home/Home/Home";
+import Blog from "../../pages/Blog/Blog";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/SignUp/SignUp";
+import ServiceItem from "../../pages/Home/Services/ServiceItem";
+import Services from "../../pages/Home/Services/Services";
 
 const router = createBrowserRouter([
     {
@@ -22,16 +25,20 @@ const router = createBrowserRouter([
             //     path: "/signup",
             //     element: <SignUp></SignUp>,
             // },
-            // {
-            //     path: "/checkout/:id",
-            //     element: <Checkout></Checkout>,
-            //     loader: ({ params }) =>
-            //         fetch(`http://localhost:5000/services/${params.id}`),
-            // },
-            // {
-            //     path: "/orders",
-            //     element: <Orders></Orders>,
-            // },
+            {
+                path: "/services",
+                element: <Services></Services>,
+            },
+            {
+                path: "/service/:id",
+                element: <ServiceDetail></ServiceDetail>,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/services/${params.id}`),
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>,
+            },
         ],
     },
 ]);
