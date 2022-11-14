@@ -6,22 +6,17 @@ const ServiceDetail = () => {
     const { _id, img, price, title, rating, description } = useLoaderData();
     const { user } = useContext(AuthContext);
 
-    const handlePlaceOrder = (event) => {
+    const handleSubmitReview = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = `${form.firstName.value} ${form.lastName.value}`;
-        const email = user?.email || "unregistered";
-        const phone = form.phone.value;
-        const message = form.message.value;
+        const text = form.review.value;
 
-        const order = {
+        const review = {
             service: _id,
             serviceName: title,
-            price,
-            customer: name,
-            email,
-            phone,
-            message,
+            user: user.name,
+            email:user.email,
+            text,
         };
 
         // if(phone.length < 10){
@@ -31,18 +26,18 @@ const ServiceDetail = () => {
 
         // }
 
-        fetch("http://localhost:5000/orders", {
+        fetch("http://localhost:5000/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(order),
+            body: JSON.stringify(review),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 if (data.acknowledged) {
-                    alert("Order placed successfully");
+                    alert("Review submitted successfully");
                     form.reset();
                 }
             })
@@ -71,7 +66,7 @@ const ServiceDetail = () => {
                     Service Reviews:
                 </h3>
                 <div className="border rounded-lg p-10">
-                    <div className="flex justify-between items-center mb-5">
+                    <div className="flex justify-between items-center mb-5 p-2">
                         <div className="flex items-center">
                             <div class="w-6/12 sm:w-4/12">
                                 <img src="" alt="Ph" />
@@ -83,50 +78,24 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div>
-                        <p>Review texts will goes here</p>
+                        <p className="bg-slate-100 p-2 rounded">Review texts will goes here</p>
                     </div>
                 </div>
             </div>
-            <form onSubmit={handlePlaceOrder}>
-                <h2 className="text-4xl">You are about to order: {title}</h2>
-                <h4 className="text-3xl">Price: {price}</h4>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <input
-                        name="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        className="input input-ghost w-full  input-bordered"
-                    />
-                    <input
-                        name="lastName"
-                        type="text"
-                        placeholder="Last Name"
-                        className="input input-ghost w-full  input-bordered"
-                    />
-                    <input
-                        name="phone"
-                        type="text"
-                        placeholder="Your Phone"
-                        className="input input-ghost w-full  input-bordered"
-                        required
-                    />
-                    <input
-                        name="email"
-                        type="text"
-                        placeholder="Your email"
-                        defaultValue={user?.email}
-                        className="input input-ghost w-full  input-bordered"
-                        readOnly
-                    />
-                </div>
+            <form className="my-10" onSubmit={handleSubmitReview}>
+                <h4 className="text-2xl">Write your review here: </h4>
                 <textarea
-                    name="message"
+                    name="review"
                     className="textarea textarea-bordered h-24 w-full"
-                    placeholder="Your Message"
+                    placeholder="Your Review"
                     required
                 ></textarea>
 
-                <input className="btn" type="submit" value="Place Your Order" />
+                <input
+                    className="btn text-white btn-success hover:bg-orange-400"
+                    type="submit"
+                    value="Submit"
+                />
             </form>
         </div>
     );

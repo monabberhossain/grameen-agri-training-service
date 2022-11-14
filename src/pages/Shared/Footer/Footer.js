@@ -8,9 +8,9 @@ const Footer = () => {
             <div>
                 <img src={logo} alt="" />
                 <p>
-                    ACME Industries Ltd.
+                    Grameen Agri Training Service
                     <br />
-                    Providing reliable tech since 1992
+                    Learn Agro Farming with Me
                 </p>
             </div>
             <div>
