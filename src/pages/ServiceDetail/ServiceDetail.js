@@ -50,7 +50,8 @@ const ServiceDetail = () => {
     };
     return (
         <div>
-            <div className="card card-compact justify-center w-100 bg-base-100 shadow-xl">
+            <h2 className="text-4xl font-semibold my-10">Service Details:</h2>
+            <div className="card card-compact justify-center w-100 bg-base-100 shadow-xl p-10 mb-16">
                 <figure>
                     <img src={img} alt="Shoes" />
                 </figure>
@@ -63,12 +64,26 @@ const ServiceDetail = () => {
                     <p className="text-2xl text-orange-400 font-semibold">
                         Rating: {rating}
                     </p>
-                    <div className="card-actions justify-center">
-                        <Link className="w-full" to={`/service/${_id}`}>
-                            <p className="btn text-white btn-success hover:bg-orange-400 w-full">
-                                View Details
-                            </p>
-                        </Link>
+                </div>
+            </div>
+            <div>
+                <h3 className="text-4xl font-semibold mt-10 mb-6">
+                    Service Reviews:
+                </h3>
+                <div className="border rounded-lg p-10">
+                    <div className="flex justify-between items-center mb-5">
+                        <div className="flex items-center">
+                            <div class="w-6/12 sm:w-4/12">
+                                <img src="" alt="Ph" />
+                            </div>
+                            <p className="ml-2">Full Name</p>
+                        </div>
+                        <div>
+                            <p>Rating: 4.5</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Review texts will goes here</p>
                     </div>
                 </div>
             </div>

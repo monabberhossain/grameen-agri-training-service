@@ -1,0 +1,23 @@
+.blog {
+    margin-top: 40px;
+}
+
+.blog-content {
+    margin-top: 40px;
+}
+
+.headline {
+    margin-bottom: 30px;
+}
+
+.question {
+    background-color: #e7f1ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.answer {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
