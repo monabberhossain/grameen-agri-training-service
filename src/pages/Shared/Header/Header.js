@@ -103,7 +103,7 @@ const Header = () => {
                                 Login
                             </button>
                         </Link>
-                        <Link to="/register">
+                        <Link to="/signup">
                             <button className="btn btn-sm lg:btn-md btn-outline btn-success font-semibold">
                                 Register
                             </button>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import loginImg from "../../assets/images/login/login.svg";
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const Login = () => {
         <div className="hero w-full my-20">
             <div className="hero-content grid md:grid-cols-2 gap-20 flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <img src="" alt="" />
+                    <img src={loginImg} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 my-4 py-16">
                     <h1 className="text-5xl text-center font-bold">Login</h1>
@@ -62,21 +63,20 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input
-                                className="btn btn-primary"
+                                className="btn btn-success text-white"
                                 type="submit"
                                 value="Login"
                             />
                         </div>
                     </form>
                     <p className="text-center">
-                        New to Genius Car? Please{" "}
+                        New to this site? Please
                         <Link
-                            className="text-orange-700 font-bold"
+                            className="text-green-400 font-bold ml-1"
                             to="/signup"
                         >
-                            {" "}
-                            Sign Up{" "}
-                        </Link>{" "}
+                            Sign Up
+                        </Link>
                     </p>
                 </div>
             </div>
