@@ -97,7 +97,7 @@ const Header = () => {
                             <span title={user?.displayName}>
                                 {user?.photoURL ? (
                                     <img
-                                    className="rounded-lg"
+                                        className="rounded-lg"
                                         style={{ height: "30px" }}
                                         src={user.photoURL}
                                         alt=""
@@ -125,7 +125,7 @@ const Header = () => {
                         </Link>
                         <Link to="/signup">
                             <button className="btn btn-sm lg:btn-md btn-outline btn-success font-semibold">
-                                Register
+                                Sign Up
                             </button>
                         </Link>
                     </div>
