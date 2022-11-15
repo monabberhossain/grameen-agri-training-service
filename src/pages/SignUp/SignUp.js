@@ -13,11 +13,28 @@ const SignUp = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const password = form.password.value;
+        const password = form.password.value;        
 
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
+                // fetch("http://localhost:5000/users", {
+                //     method: "POST", // or 'PUT'
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //     },
+                //     body: JSON.stringify(user),
+                // })
+                //     .then((res) => res.json())
+                //     .then((data) => {
+                //         if (data.acknowledged) {
+                //             alert("User added successfully");
+                //             event.target.reset();
+                //         }
+                //         // const newUsers = [...users, data];
+                //         // setUsers(newUsers);
+                //     })
+                //     .catch((error) => console.log(error));
                 console.log(user);
             })
             .catch((error) => console.error(error));

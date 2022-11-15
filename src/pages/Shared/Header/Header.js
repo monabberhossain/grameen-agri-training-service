@@ -5,7 +5,13 @@ import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {})
+            .catch((error) => console.log(error));
+    };
     const menuItems = (
         <>
             <li className="font-semibold hover:btn-success rounded-md">
@@ -24,14 +30,20 @@ const Header = () => {
                 </Link>
             </li>
             {user?.email ? (
-                <li className="font-semibold">
-                    <Link to="/orders">Orders</Link>
-                </li>
+                <>
+                    <li className="font-semibold hover:btn-success rounded-md">
+                        <Link className="hover:text-white" to="/reviews/">
+                            My Reviews
+                        </Link>
+                    </li>
+                    <li className="font-semibold hover:btn-success rounded-md">
+                        <Link className="hover:text-white" to="/">
+                            Add Service
+                        </Link>
+                    </li>
+                </>
             ) : (
                 <></>
-                // <li className="font-semibold">
-                //     <Link to="/login">Login</Link>
-                // </li>
             )}
         </>
     );
@@ -78,20 +90,28 @@ const Header = () => {
             <div className="navbar-end">
                 {user?.email ? (
                     <>
-                        <Link to="/profile" className="p-0 mr-2 no-underline">
+                        <Link
+                            to="/profile"
+                            className="flex items-center p-0 mr-2 no-underline"
+                        >
                             <span title={user?.displayName}>
                                 {user?.photoURL ? (
                                     <img
+                                    className="rounded-lg"
                                         style={{ height: "30px" }}
-                                        roundedCircle
                                         src={user.photoURL}
                                         alt=""
                                     ></img>
                                 ) : (
-                                    <FaUser className="text-sm"></FaUser>
+                                    <FaUser className="text-lg"></FaUser>
                                 )}
                             </span>
-                            <button className="btn btn-sm lg:btn-md btn-outline btn-success font-semibold">
+                        </Link>
+                        <Link className="p-0 mr-2 no-underline">
+                            <button
+                                onClick={handleLogOut}
+                                className="btn btn-sm lg:btn-md btn-outline btn-success font-semibold"
+                            >
                                 Log Out
                             </button>
                         </Link>

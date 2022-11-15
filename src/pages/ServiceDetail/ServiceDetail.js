@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const ServiceDetail = () => {
     const { _id, img, price, title, rating, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+    console.log(user);
 
     const handleSubmitReview = (event) => {
         event.preventDefault();
@@ -15,7 +17,7 @@ const ServiceDetail = () => {
             service: _id,
             serviceName: title,
             user: user.name,
-            email:user.email,
+            email: user.email,
             text,
         };
 
@@ -68,17 +70,32 @@ const ServiceDetail = () => {
                 <div className="border rounded-lg p-10">
                     <div className="flex justify-between items-center mb-5 p-2">
                         <div className="flex items-center">
-                            <div class="w-6/12 sm:w-4/12">
-                                <img src="" alt="Ph" />
+                            <div>
+                                {user?.photoURL ? (
+                                    <img
+                                        className="rounded-lg"
+                                        style={{ height: "30px" }}
+                                        src={user.photoURL}
+                                        alt=""
+                                    ></img>
+                                ) : (
+                                    <FaUser className="text-lg"></FaUser>
+                                )}
                             </div>
-                            <p className="ml-2">Full Name</p>
+                            <p className="ml-2">
+                                {user?.displayName
+                                    ? user.displayName
+                                    : user.name}
+                            </p>
                         </div>
                         <div>
                             <p>Rating: 4.5</p>
                         </div>
                     </div>
                     <div>
-                        <p className="bg-slate-100 p-2 rounded">Review texts will goes here</p>
+                        <p className="bg-slate-100 p-2 rounded">
+                            Review texts will goes here
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import loginImg from "../../assets/images/login/login.svg";
+import { GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, user, resetPassword, loginProvider } =
+        useContext(AuthContext);    
+    
+    const [userEmail, setUserEmail] = useState("");
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -19,7 +26,39 @@ const Login = () => {
                 console.log(user);
             })
             .catch((error) => console.error(error));
+    }; 
+    
+    const handleUserEmail = (event) => {
+        const email = event.target.email.value;
+        setUserEmail(email);
     };
+
+    const handleForgotPassword = () => {
+        if (!userEmail) {
+            alert("Please enter your email address.");
+            return;
+        } else {
+            resetPassword(userEmail)
+                .then(() => {
+                    toast.error(
+                        "Password reset email has sent. Please check email."
+                    );
+                })
+                .catch((error) => console.log(error));
+        }
+    };
+
+    const handleSignInWithGoogle = () => {
+        loginProvider(googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                toast.message("Email is in use.");
+            });
+    };
+
     return (
         <div className="hero w-full my-20">
             <div className="hero-content grid md:grid-cols-2 gap-20 flex-col lg:flex-row-reverse">
@@ -34,7 +73,8 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input
-                                type="text"
+                                onBlur={handleUserEmail}
+                                type="email"
                                 name="email"
                                 placeholder="Your Email"
                                 className="input input-bordered"
@@ -46,7 +86,7 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input
-                                type="text"
+                                type="password"
                                 name="password"
                                 placeholder="Password"
                                 className="input input-bordered"
@@ -56,6 +96,7 @@ const Login = () => {
                                 <Link
                                     href="#"
                                     className="label-text-alt link link-hover"
+                                    onClick={handleForgotPassword}
                                 >
                                     Forgot password?
                                 </Link>
@@ -69,6 +110,15 @@ const Login = () => {
                             />
                         </div>
                     </form>
+                    <button className="mx-8 mb-5 btn btn-success text-white">
+                        <Link
+                            onClick={handleSignInWithGoogle}
+                            className="flex items-center"
+                        >
+                            <FaGoogle className="mr-1"></FaGoogle>Sign In With
+                            Google
+                        </Link>
+                    </button>
                     <p className="text-center">
                         New to this site? Please
                         <Link
