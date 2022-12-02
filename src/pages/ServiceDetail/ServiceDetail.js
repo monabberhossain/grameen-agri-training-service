@@ -10,7 +10,7 @@ const ServiceDetail = () => {
     const [reviews, setReviews] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/reviews")
+        fetch("https://grameen-agri-training-service-server.vercel.app/reviews")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -26,15 +26,18 @@ const ServiceDetail = () => {
             userName: user.displayName,
             email: user.email,
             text,
-        };        
+        };
 
-        fetch("http://localhost:5000/reviews", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(review),
-        })
+        fetch(
+            "https://grameen-agri-training-service-server.vercel.app/reviews",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify(review),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -67,9 +70,9 @@ const ServiceDetail = () => {
                 <h3 className="text-4xl font-semibold mt-10 mb-6">
                     Service Reviews:
                 </h3>
-                {
-                    reviews.map(review => <Review key={review._id} review={review}></Review>)
-                }
+                {reviews.map((review) => (
+                    <Review key={review._id} review={review}></Review>
+                ))}
             </div>
             <form className="my-10" onSubmit={handleSubmitReview}>
                 <h4 className="text-2xl">Write your review here: </h4>

@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaUser } from "react-icons/fa";
-import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Review = ({ review }) => {
     const { userName, text } = review;
