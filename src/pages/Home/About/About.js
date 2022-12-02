@@ -1,16 +1,16 @@
 import React from "react";
+import about from "../../../assets/images/aboutus/aboutus.jpg";
 
 const About = () => {
     return (
         <div className="hero my-20">
             <div className="hero-content flex-col lg:flex-row">
-                <div className="relative w-1/2">
+                <div className="w-1/2 mr-5">                    
                     <img
-                        src=""
+                        src={about}
                         alt=""
-                        className="w-4/5 h-full rounded-lg shadow-2xl"
+                        className="border-8 rounded-lg shadow-2xl"
                     />
-                    <img src="" alt="" className="absolute right-10 top-1/2 w-3/5 border-8 rounded-lg shadow-2xl" />
                 </div>
                 <div className="w-1/2">
                     <p className="text-2xl font-bold text-orange-700">
@@ -18,7 +18,7 @@ const About = () => {
                     </p>
                     <h1 className="text-5xl font-bold">
                         We are qualified <br />
-                        & of experience <br />
+                        & 10 years of experience <br />
                         in this field
                     </h1>
                     <p className="pt-6">
@@ -32,7 +32,9 @@ const About = () => {
                         injected humour, or randomised words which don't look
                         even slightly believable.
                     </p>
-                    <button className="btn btn-primary">Get More Info</button>
+                    <button className="btn text-white btn-success hover:bg-orange-400">
+                        Get More Info
+                    </button>
                 </div>
             </div>
         </div>

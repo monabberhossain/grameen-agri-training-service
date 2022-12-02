@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import signupImg from "../../assets/images/login/login.svg";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import { FaGoogle } from "react-icons/fa";
 const SignUp = () => {
     const [error, setError] = useState("");
     const [accepted, setAccepted] = useState();
+    const navigate = useNavigate();
     const { createUser, updateUserProfile, loginProvider } =
         useContext(AuthContext);
 
@@ -27,6 +28,7 @@ const SignUp = () => {
                 const user = result.user;
                 setError("");
                 form.reset();
+                navigate("/login");
                 handleUserProfile(name);
                 toast.success("You have successfully registered!");
             })
@@ -132,6 +134,7 @@ const SignUp = () => {
                                 className="btn btn-success text-white"
                                 type="submit"
                                 value="Sign Up"
+                                disabled={!accepted}
                             />
                         </div>
                     </form>

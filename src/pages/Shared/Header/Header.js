@@ -78,7 +78,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link className="flex items-center" to="/">
-                    <img className="mr-2" src={logo} alt="" />
+                    <img className="mr-2 h-[50px] w-[50px]" src={logo} alt="" />
                     <h2 className="font-bold text-green-700">
                         Grameen Agri Training Service
                     </h2>

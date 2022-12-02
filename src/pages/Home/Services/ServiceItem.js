@@ -18,7 +18,7 @@ const ServiceItem = ({ service }) => {
                     Rating: {rating}
                 </p>
                 <div className="card-actions justify-center">
-                    <Link className="w-full" to={`/service/${_id}`}>
+                    <Link className="w-full" to={`/services/${_id}`}>
                         <p className="btn text-white btn-success hover:bg-orange-400 w-full">
                             View Details
                         </p>

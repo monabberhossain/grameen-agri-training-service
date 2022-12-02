@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import loginImg from "../../assets/images/login/login.svg";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -7,45 +7,39 @@ import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { login, user, resetPassword, loginProvider } =
-        useContext(AuthContext);    
-    
-    const [userEmail, setUserEmail] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
+    const { login, user, loginProvider } =
+        useContext(AuthContext);
+
     const googleProvider = new GoogleAuthProvider();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
         event.preventDefault();
-
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        console.log(email, password);
 
         login(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                form.reset();
+                setError("");                
             })
-            .catch((error) => console.error(error));
-    }; 
-    
-    const handleUserEmail = (event) => {
-        const email = event.target.email.value;
-        setUserEmail(email);
-    };
-
-    const handleForgotPassword = () => {
-        if (!userEmail) {
-            alert("Please enter your email address.");
-            return;
-        } else {
-            resetPassword(userEmail)
-                .then(() => {
-                    toast.error(
-                        "Password reset email has sent. Please check email."
-                    );
-                })
-                .catch((error) => console.log(error));
-        }
+            .catch((error) => {
+                setError(error.message);
+                console.log(error);
+            })
+            .finally(() => {
+                navigate(from, { replace: true });
+                setLoading(false);
+            });
     };
 
     const handleSignInWithGoogle = () => {
@@ -73,7 +67,6 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input
-                                onBlur={handleUserEmail}
                                 type="email"
                                 name="email"
                                 placeholder="Your Email"
@@ -92,15 +85,6 @@ const Login = () => {
                                 className="input input-bordered"
                                 required
                             />
-                            <label className="label">
-                                <Link
-                                    href="#"
-                                    className="label-text-alt link link-hover"
-                                    onClick={handleForgotPassword}
-                                >
-                                    Forgot password?
-                                </Link>
-                            </label>
                         </div>
                         <div className="form-control mt-6">
                             <input
